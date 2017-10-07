@@ -23,7 +23,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         List<Item> itemList = new ArrayList<Item>();
-//        itemList.add(new Item(R.drawable.kanaimage));
+        itemList.add(new Item(R.drawable.morningimage,R.drawable.nanaimage,"柴田菜々子"));
+        itemList.add(new Item(R.drawable.noonimage,R.drawable.kanaimage,"佐藤かなえ"));
+        itemList.add(new Item(R.drawable.eveningimage,R.drawable.momoimage,"住田桃子"));
 
         CustomAdapter adapter = new CustomAdapter(getApplicationContext(), 0, itemList);
         ListView listView = new ListView(this);
