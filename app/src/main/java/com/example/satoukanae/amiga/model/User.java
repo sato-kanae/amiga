@@ -1,10 +1,12 @@
 package com.example.satoukanae.amiga.model;
 
+import java.io.Serializable;
+
 /**
  * Created by tester0333 on 2017/10/07.
  */
 
-public class User {
+public class User implements Serializable{
     private int timeIcon;
     private int faceIcon;
     private String name;
