@@ -34,6 +34,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Collections;
+import java.util.Random;
 
 /**
  * Shows off the most basic usage
@@ -47,6 +48,7 @@ public class MainActivity extends AppCompatActivity implements OnDateSelectedLis
     private ListView listView;
     private AlertDialog dialog;
     private Config config = Config.getInstance();
+    private List<Integer> time_images;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,23 +56,10 @@ public class MainActivity extends AppCompatActivity implements OnDateSelectedLis
         setContentView(R.layout.activity_main);
         this.widget =(MaterialCalendarView)findViewById(R.id.calendarView);
 
-        this.widget.setOnDateChangedListener(this);
-        this.widget.setOnMonthChangedListener(this);
-        this.dialogTitle = new TextView(this);
-        this.dialogTitle.setBackgroundColor(Color.parseColor("#44D3AE"));
-        this.dialogTitle.setHeight(60);
-        this.dialogTitle.setTextSize(20);
-        this.dialogTitle.setTextColor(Color.parseColor("#FFFFFF"));
-        this.dialogTitle.setGravity(Gravity.CENTER);
-        this.widget.setOnDateChangedListener(this);
-        this.widget.setOnMonthChangedListener(this);
-
-        this.listView = new ListView(this);
-        this.setDialogContents();
-        this.listView.setOnItemClickListener(this);
-        this.dialog =new AlertDialog.Builder(this)
-                .setCustomTitle(this.dialogTitle)
-                .setView(this.listView).create();
+        this.time_images = new ArrayList<Integer>();
+        this.time_images.add(R.drawable.morningimage);
+        this.time_images.add(R.drawable.noonimage);
+        this.time_images.add(R.drawable.eveningimage);
 
         this.config.users.add(new User(R.drawable.morningimage, R.drawable.ayaimage,    "下村綾  " ,"aya", "文科Ｉ類", "中国語",  "桜蔭", "", "", "", ""            ));
         this.config.users.add(new User(R.drawable.eveningimage, R.drawable.haruimage,  "木下波瑠", "haru"  ,  "文科Ⅱ類",  "フランス語", "白百合", "", "", "", ""    ));
@@ -84,7 +73,25 @@ public class MainActivity extends AppCompatActivity implements OnDateSelectedLis
         this.config.users.add(new User(R.drawable.eveningimage, R.drawable.tomoimage,  "小野友"  , "tomo"  , "理科Ⅲ類",   "フランス語",  "豊島丘", "", "", "", ""));
         this.config.users.add(new User(R.drawable.morningimage, R.drawable.yagiimage,  "八木美沙" , "yagi" , "理科Ⅲ類",   "スペイン語",  "女子学院", "", "", "", ""));
         this.config.users.add(new User(R.drawable.eveningimage, R.drawable.yumiimage,  "奥村由美" , "yumi" , "文科Ⅲ類",   "フランス語",  "豊島丘", "", "", "", "" ));
-        
+
+        this.widget.setOnDateChangedListener(this);
+        this.widget.setOnMonthChangedListener(this);
+        this.dialogTitle = new TextView(this);
+        this.dialogTitle.setBackgroundColor(Color.parseColor("#44D3AE"));
+        this.dialogTitle.setHeight(60);
+        this.dialogTitle.setTextSize(20);
+        this.dialogTitle.setTextColor(Color.parseColor("#FFFFFF"));
+        this.dialogTitle.setGravity(Gravity.CENTER);
+        this.widget.setOnDateChangedListener(this);
+        this.widget.setOnMonthChangedListener(this);
+
+        this.listView = new ListView(this);
+        this.listView.setOnItemClickListener(this);
+        this.dialog =new AlertDialog.Builder(this)
+                .setCustomTitle(this.dialogTitle)
+                .setView(this.listView).create();
+
+
     }
 
     public List<User> requestRecommendation(int userId){
@@ -115,9 +122,17 @@ public class MainActivity extends AppCompatActivity implements OnDateSelectedLis
             }
         });
 
+        Random rand = new Random();
         List<User> ret_users = new ArrayList<User>();
-        for(int i=0; i<3; i++){
-            ret_users.add(zipped.get(i).cdr);
+        for(int i=0; i<zipped.size(); i++){
+            Pair pr = zipped.get(i);
+            float score = pr.car;
+            User tmp_user = pr.cdr;
+            tmp_user.setTimeIcon(this.time_images.get(rand.nextInt(3)));
+
+            if(rand.nextInt(3) > score) {
+                ret_users.add(tmp_user);
+            }
         }
         return ret_users;
     }
@@ -137,6 +152,7 @@ public class MainActivity extends AppCompatActivity implements OnDateSelectedLis
     }
 
     private void showDialog(){
+        setDialogContents();
         this.dialog.show();
     }
 
