@@ -2,11 +2,13 @@ package com.example.satoukanae.amiga;
 
 
 import android.app.AlertDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -25,10 +27,9 @@ import java.util.List;
 /**
  * Shows off the most basic usage
  */
-public class MainActivity extends AppCompatActivity implements OnDateSelectedListener, OnMonthChangedListener {
+public class MainActivity extends AppCompatActivity implements OnDateSelectedListener, OnMonthChangedListener, AdapterView.OnItemClickListener {
 
     private static final DateFormat FORMATTER = SimpleDateFormat.getDateInstance();
-
 
     private MaterialCalendarView widget;
     private TextView textView;
@@ -45,10 +46,11 @@ public class MainActivity extends AppCompatActivity implements OnDateSelectedLis
         widget.setOnMonthChangedListener(this);
 
         this.listView = new ListView(this);
+        setDialogContents();
+        this.listView.setOnItemClickListener(this);
         this.dialog =new AlertDialog.Builder(this)
                 .setTitle("2017年10月8日")
                 .setView(this.listView).create();
-        setDialogContents();
     }
 
     @Override
@@ -84,5 +86,13 @@ public class MainActivity extends AppCompatActivity implements OnDateSelectedLis
             return "No Selection";
         }
         return FORMATTER.format(date.getDate());
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+        ListView lv  = (ListView)adapterView;
+        Intent intent = new Intent(this, ProfileActivity.class);
+        intent.putExtra("user", (User)lv.getItemAtPosition(i));
+        startActivityForResult(intent, 1000);
     }
 }
