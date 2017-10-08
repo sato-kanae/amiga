@@ -11,9 +11,7 @@ public class User {
     private String nickname;
     private String faculty;
     private String lang;
-    private String place_of_birth;
     private String highschool;
-    private String station;
     private String hobby;
     private String like;
     private String club;
@@ -27,8 +25,8 @@ public class User {
     }
 
     public User(int timeIcon, int FaceIcon,
-         String name, String nickname, String faculty, String lang, String place_of_birth,
-         String highschool, String station, String hobby, String like,
+         String name, String nickname, String faculty, String lang,
+         String highschool, String hobby, String like,
          String club,
          String life){
         this.timeIcon = timeIcon;
@@ -37,9 +35,7 @@ public class User {
         this.nickname = nickname;
         this.faculty = faculty;
         this.lang = lang;
-        this.place_of_birth = place_of_birth;
         this.highschool = highschool;
-        this.station = station;
         this.hobby = hobby;
         this.like = like;
         this.club = club;
@@ -62,28 +58,12 @@ public class User {
         this.lang = lang;
     }
 
-    public String getPlace_of_birth() {
-        return place_of_birth;
-    }
-
-    public void setPlace_of_birth(String place_of_birth) {
-        this.place_of_birth = place_of_birth;
-    }
-
     public String getHighschool() {
         return highschool;
     }
 
     public void setHighschool(String highschool) {
         this.highschool = highschool;
-    }
-
-    public String getStation() {
-        return station;
-    }
-
-    public void setStation(String station) {
-        this.station = station;
     }
 
     public String getHobby() {
@@ -154,9 +134,7 @@ public class User {
     public float compare(User user){
         float pfcl;
         float plng;
-        float ppob;
         float phs;
-        float pst;
 
         if(this.faculty.equals(user.faculty)){
             pfcl = 1;
@@ -168,22 +146,12 @@ public class User {
         }else{
             plng = 0;
         }
-        if(this.place_of_birth.equals(user.place_of_birth)){
-            ppob = 1;
-        }else{
-            ppob = 0;
-        }
         if(this.highschool.equals(user.highschool)){
             phs = 1;
         }else{
             phs = 0;
         }
-        if(this.station.equals(user.station)){
-            pst = 1;
-        }else{
-            pst = 0;
-        }
 
-        return pfcl + plng + ppob + phs + pst;
+        return pfcl + plng + phs;
     }
 }

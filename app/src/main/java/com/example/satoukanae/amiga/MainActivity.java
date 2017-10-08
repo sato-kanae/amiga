@@ -71,18 +71,18 @@ public class MainActivity extends AppCompatActivity implements OnDateSelectedLis
                 .setTitle("2017年10月8日")
                 .setView(this.listView).create();
 
-        this.config.users.add(new User(R.drawable.morningimage, R.drawable.ayaimage,    "下村綾  " ,"aya", "文科Ｉ類", "中国語", "東京", "桜蔭", "渋谷", "", "", "", ""            ));
-        this.config.users.add(new User(R.drawable.eveningimage, R.drawable.haruimage,  "木下波瑠", "haru"  ,  "文科Ⅱ類",  "フランス語", "東京", "白百合", "中目黒", "", "", "", ""    ));
-        this.config.users.add(new User(R.drawable.noonimage, R.drawable.kanaimage,  "川田加奈"  , "kana",  "文科Ⅲ類",   "スペイン語", "東京", "豊島丘", "渋谷", "", "", "", ""));
-        this.config.users.add(new User(R.drawable.eveningimage, R.drawable.mariimage,  "伊藤麻里" , "mari" ,  "理科Ⅲ類",   "ドイツ語", "東京", "豊島丘", "武蔵小杉", "", "", "", ""   ));
-        this.config.users.add(new User(R.drawable.morningimage, R.drawable.mayaimage,  "松本麻耶" , "maya" ,  "文科Ⅲ類", "中国語", "東京", "桜蔭", "下北沢", "", "", "", ""           ));
-        this.config.users.add(new User(R.drawable.noonimage, R.drawable.momoimage,  "田中桃子" , "momo" , "理科Ⅲ類",  "フランス語", "東京", "女子学院", "中目黒", "", "", "", ""   ));
-        this.config.users.add(new User(R.drawable.noonimage, R.drawable.nanaimage, "小野なな" , "nana" , "文科Ｉ類",   "スペイン語", "福岡", "女子学院", "武蔵小杉", "", "", "", ""));
-        this.config.users.add(new User(R.drawable.morningimage, R.drawable.noaimage,   "山脇乃亜",  "noa"  , "文科Ⅱ類",   "ドイツ語", "福岡", "桜蔭", "下北沢", "", "", "", ""       ));
-        this.config.users.add(new User(R.drawable.noonimage, R.drawable.rikaimage,  "伊藤梨花" , "rika" , "文科Ⅲ類",   "中国語", "京都", "桜蔭", "中目黒", "", "", "", "" ));
-        this.config.users.add(new User(R.drawable.eveningimage, R.drawable.tomoimage,  "小野友"  , "tomo"  , "理科Ⅲ類",   "フランス語", "京都", "豊島丘", "武蔵小杉", "", "", "", ""));
-        this.config.users.add(new User(R.drawable.morningimage, R.drawable.yagiimage,  "八木美沙" , "yagi" , "理科Ⅲ類",   "スペイン語", "名古屋", "女子学院", "王子", "", "", "", ""));
-        this.config.users.add(new User(R.drawable.eveningimage, R.drawable.yumiimage,  "奥村由美" , "yumi" , "文科Ⅲ類",   "フランス語", "名古屋", "豊島丘", "王子", "", "", "", "" ));
+        this.config.users.add(new User(R.drawable.morningimage, R.drawable.ayaimage,    "下村綾  " ,"aya", "文科Ｉ類", "中国語",  "桜蔭", "", "", "", ""            ));
+        this.config.users.add(new User(R.drawable.eveningimage, R.drawable.haruimage,  "木下波瑠", "haru"  ,  "文科Ⅱ類",  "フランス語", "白百合", "", "", "", ""    ));
+        this.config.users.add(new User(R.drawable.noonimage, R.drawable.kanaimage,  "川田加奈"  , "kana",  "文科Ⅲ類",   "スペイン語","豊島丘","", "", "", ""));
+        this.config.users.add(new User(R.drawable.eveningimage, R.drawable.mariimage,  "伊藤麻里" , "mari" ,  "理科Ⅲ類",   "ドイツ語", "豊島丘","", "", "", ""   ));
+        this.config.users.add(new User(R.drawable.morningimage, R.drawable.mayaimage,  "松本麻耶" , "maya" ,  "文科Ⅲ類", "中国語", "桜蔭","", "", "", ""           ));
+        this.config.users.add(new User(R.drawable.noonimage, R.drawable.momoimage,  "田中桃子" , "momo" , "理科Ⅲ類",  "フランス語",  "女子学院","", "", "", ""   ));
+        this.config.users.add(new User(R.drawable.noonimage, R.drawable.nanaimage, "小野なな" , "nana" , "文科Ｉ類",   "スペイン語",  "女子学院","", "", "", ""));
+        this.config.users.add(new User(R.drawable.morningimage, R.drawable.noaimage,   "山脇乃亜",  "noa"  , "文科Ⅱ類",   "ドイツ語", "桜蔭", "", "", "", ""       ));
+        this.config.users.add(new User(R.drawable.noonimage, R.drawable.rikaimage,  "伊藤梨花" , "rika" , "文科Ⅲ類",   "中国語", "桜蔭", "", "", "", "" ));
+        this.config.users.add(new User(R.drawable.eveningimage, R.drawable.tomoimage,  "小野友"  , "tomo"  , "理科Ⅲ類",   "フランス語",  "豊島丘", "", "", "", ""));
+        this.config.users.add(new User(R.drawable.morningimage, R.drawable.yagiimage,  "八木美沙" , "yagi" , "理科Ⅲ類",   "スペイン語",  "女子学院", "", "", "", ""));
+        this.config.users.add(new User(R.drawable.eveningimage, R.drawable.yumiimage,  "奥村由美" , "yumi" , "文科Ⅲ類",   "フランス語",  "豊島丘", "", "", "", "" ));
         
         setDialogContents();
     }
