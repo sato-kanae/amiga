@@ -3,10 +3,12 @@ package com.example.satoukanae.amiga;
 
 import android.app.AlertDialog;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -34,6 +36,7 @@ public class MainActivity extends AppCompatActivity implements OnDateSelectedLis
 
     private MaterialCalendarView widget;
     private TextView textView;
+    private TextView dialogTitle;
     private ListView listView;
     private AlertDialog dialog;
 
@@ -45,12 +48,19 @@ public class MainActivity extends AppCompatActivity implements OnDateSelectedLis
         textView =(TextView) findViewById(R.id.textView);
         widget.setOnDateChangedListener(this);
         widget.setOnMonthChangedListener(this);
+        this.dialogTitle = new TextView(this);
+        this.dialogTitle.setBackgroundColor(Color.parseColor("#44D3AE"));
+        this.dialogTitle.setHeight(60);
+        this.dialogTitle.setTextSize(20);
+        this.dialogTitle.setTextColor(Color.parseColor("#FFFFFF"));
+
+        this.dialogTitle.setGravity(Gravity.CENTER);
 
         this.listView = new ListView(this);
         setDialogContents();
         this.listView.setOnItemClickListener(this);
         this.dialog =new AlertDialog.Builder(this)
-                .setTitle("2017年10月8日")
+                .setCustomTitle(this.dialogTitle)
                 .setView(this.listView).create();
 
     }
@@ -58,6 +68,9 @@ public class MainActivity extends AppCompatActivity implements OnDateSelectedLis
     @Override
     public void onDateSelected(@NonNull MaterialCalendarView widget, @Nullable CalendarDay date, boolean selected) {
         showDialog();
+        if (date != null){
+            this.dialogTitle.setText(new SimpleDateFormat("yyyy/MM/dd").format(date.getDate()));
+        }
         textView.setText(getSelectedDatesString());
     }
 

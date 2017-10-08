@@ -13,10 +13,17 @@ public class ProfileActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
-
+//
         Intent intent = getIntent();
         final User user = (User)intent.getSerializableExtra("user");
 
+        String name = user.getName();
+//      String faculty = user.getFaculty();
+//      String language = user.getLanguage();
+//      String place = user.getPlace();
+//      String school = user.getSchool();
+//      String station = user.getStation();
+//       String hobby = user.getHobby()
 
         ((TextView)findViewById(R.id.name)).setText(name);
 
