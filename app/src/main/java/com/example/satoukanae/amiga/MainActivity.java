@@ -2,11 +2,15 @@ package com.example.satoukanae.amiga;
 
 
 import android.app.AlertDialog;
+import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Gravity;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -33,13 +37,12 @@ import java.util.Collections;
 /**
  * Shows off the most basic usage
  */
-public class MainActivity extends AppCompatActivity implements OnDateSelectedListener, OnMonthChangedListener {
+public class MainActivity extends AppCompatActivity implements OnDateSelectedListener, OnMonthChangedListener, AdapterView.OnItemClickListener {
 
     private static final DateFormat FORMATTER = SimpleDateFormat.getDateInstance();
 
-
     private MaterialCalendarView widget;
-    private TextView textView;
+    private TextView dialogTitle;
     private ListView listView;
     private AlertDialog dialog;
     private Config config = Config.getInstance();
@@ -48,15 +51,23 @@ public class MainActivity extends AppCompatActivity implements OnDateSelectedLis
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        widget =(MaterialCalendarView)findViewById(R.id.calendarView);
-        textView =(TextView) findViewById(R.id.textView);
-        widget.setOnDateChangedListener(this);
-        widget.setOnMonthChangedListener(this);
+        this.widget =(MaterialCalendarView)findViewById(R.id.calendarView);
+        this.widget.setOnDateChangedListener(this);
+        this.widget.setOnMonthChangedListener(this);
+        this.dialogTitle = new TextView(this);
+        this.dialogTitle.setBackgroundColor(Color.parseColor("#44D3AE"));
+        this.dialogTitle.setHeight(60);
+        this.dialogTitle.setTextSize(20);
+        this.dialogTitle.setTextColor(Color.parseColor("#FFFFFF"));
+        this.dialogTitle.setGravity(Gravity.CENTER);
+        this.widget.setOnDateChangedListener(this);
+        this.widget.setOnMonthChangedListener(this);
 
         this.listView = new ListView(this);
+        this.setDialogContents();
+        this.listView.setOnItemClickListener(this);
         this.dialog =new AlertDialog.Builder(this)
-                .setTitle("2017年10月8日")
+                .setCustomTitle(this.dialogTitle)
                 .setView(this.listView).create();
 
         this.config.users.add(new User(R.drawable.morningimage, R.drawable.ayaimage,    "下村綾  " ,"aya", "文科Ｉ類", "中国語",  "桜蔭", "", "", "", ""            ));
@@ -72,7 +83,6 @@ public class MainActivity extends AppCompatActivity implements OnDateSelectedLis
         this.config.users.add(new User(R.drawable.morningimage, R.drawable.yagiimage,  "八木美沙" , "yagi" , "理科Ⅲ類",   "スペイン語",  "女子学院", "", "", "", ""));
         this.config.users.add(new User(R.drawable.eveningimage, R.drawable.yumiimage,  "奥村由美" , "yumi" , "文科Ⅲ類",   "フランス語",  "豊島丘", "", "", "", "" ));
         
-        setDialogContents();
     }
 
     public List<User> requestRecommendation(int userId){
@@ -113,7 +123,9 @@ public class MainActivity extends AppCompatActivity implements OnDateSelectedLis
     @Override
     public void onDateSelected(@NonNull MaterialCalendarView widget, @Nullable CalendarDay date, boolean selected) {
         showDialog();
-        textView.setText(getSelectedDatesString());
+        if (date != null){
+            this.dialogTitle.setText(new SimpleDateFormat("yyyy/MM/dd").format(date.getDate()));
+        }
     }
 
     @Override
@@ -140,5 +152,12 @@ public class MainActivity extends AppCompatActivity implements OnDateSelectedLis
         }
         return FORMATTER.format(date.getDate());
     }
-}
 
+    @Override
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+        ListView lv  = (ListView)adapterView;
+        Intent intent = new Intent(this, ProfileActivity.class);
+        intent.putExtra("user", (User)lv.getItemAtPosition(i));
+        startActivityForResult(intent, 1000);
+    }
+}
