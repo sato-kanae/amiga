@@ -33,9 +33,7 @@ public class MainActivity extends AppCompatActivity implements OnDateSelectedLis
 
     private static final DateFormat FORMATTER = SimpleDateFormat.getDateInstance();
 
-
     private MaterialCalendarView widget;
-    private TextView textView;
     private TextView dialogTitle;
     private ListView listView;
     private AlertDialog dialog;
@@ -44,10 +42,9 @@ public class MainActivity extends AppCompatActivity implements OnDateSelectedLis
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        widget =(MaterialCalendarView)findViewById(R.id.calendarView);
-        textView =(TextView) findViewById(R.id.textView);
-        widget.setOnDateChangedListener(this);
-        widget.setOnMonthChangedListener(this);
+        this.widget =(MaterialCalendarView)findViewById(R.id.calendarView);
+        this.widget.setOnDateChangedListener(this);
+        this.widget.setOnMonthChangedListener(this);
         this.dialogTitle = new TextView(this);
         this.dialogTitle.setBackgroundColor(Color.parseColor("#44D3AE"));
         this.dialogTitle.setHeight(60);
@@ -55,14 +52,15 @@ public class MainActivity extends AppCompatActivity implements OnDateSelectedLis
         this.dialogTitle.setTextColor(Color.parseColor("#FFFFFF"));
 
         this.dialogTitle.setGravity(Gravity.CENTER);
+        this.widget.setOnDateChangedListener(this);
+        this.widget.setOnMonthChangedListener(this);
 
         this.listView = new ListView(this);
-        setDialogContents();
+        this.setDialogContents();
         this.listView.setOnItemClickListener(this);
         this.dialog =new AlertDialog.Builder(this)
                 .setCustomTitle(this.dialogTitle)
                 .setView(this.listView).create();
-
     }
 
     @Override
@@ -71,7 +69,6 @@ public class MainActivity extends AppCompatActivity implements OnDateSelectedLis
         if (date != null){
             this.dialogTitle.setText(new SimpleDateFormat("yyyy/MM/dd").format(date.getDate()));
         }
-        textView.setText(getSelectedDatesString());
     }
 
     @Override
