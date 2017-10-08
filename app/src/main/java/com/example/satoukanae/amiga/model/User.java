@@ -8,15 +8,123 @@ public class User {
     private int timeIcon;
     private int faceIcon;
     private String name;
+    private String nickname;
+    private String faculty;
+    private String lang;
+    private String place_of_birth;
+    private String highschool;
+    private String station;
+    private String hobby;
+    private String like;
+    private String club;
+    private String life;
 
-    public User(){
-
-    }
 
     public User(int timeIcon, int faceIcon, String name){
         this.timeIcon = timeIcon;
         this.faceIcon = faceIcon;
         this.name = name;
+    }
+
+    public User(int timeIcon, int FaceIcon,
+         String name, String nickname, String faculty, String lang, String place_of_birth,
+         String highschool, String station, String hobby, String like,
+         String club,
+         String life){
+        this.timeIcon = timeIcon;
+        this.faceIcon = faceIcon;
+        this.name =   name;
+        this.nickname = nickname;
+        this.faculty = faculty;
+        this.lang = lang;
+        this.place_of_birth = place_of_birth;
+        this.highschool = highschool;
+        this.station = station;
+        this.hobby = hobby;
+        this.like = like;
+        this.club = club;
+        this.life = life;
+    }
+
+    public String getFaculty() {
+        return faculty;
+    }
+
+    public void setFaculty(String faculty) {
+        this.faculty = faculty;
+    }
+
+    public String getLang() {
+        return lang;
+    }
+
+    public void setLang(String lang) {
+        this.lang = lang;
+    }
+
+    public String getPlace_of_birth() {
+        return place_of_birth;
+    }
+
+    public void setPlace_of_birth(String place_of_birth) {
+        this.place_of_birth = place_of_birth;
+    }
+
+    public String getHighschool() {
+        return highschool;
+    }
+
+    public void setHighschool(String highschool) {
+        this.highschool = highschool;
+    }
+
+    public String getStation() {
+        return station;
+    }
+
+    public void setStation(String station) {
+        this.station = station;
+    }
+
+    public String getHobby() {
+        return hobby;
+    }
+
+    public void setHobby(String hobby) {
+        this.hobby = hobby;
+    }
+
+    public String getLike() {
+        return like;
+    }
+
+    public void setLike(String like) {
+        this.like = like;
+    }
+
+    public String getClub() {
+        return club;
+    }
+
+    public void setClub(String club) {
+        this.club = club;
+    }
+
+    public String getLife() {
+        return life;
+    }
+
+    public void setLife(String life) {
+        this.life = life;
+    }
+
+    public String getNickname() {
+
+        return nickname;
+    }
+
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
     }
 
     public int getTimeIcon() {
@@ -43,4 +151,39 @@ public class User {
         this.name = name;
     }
 
+    public float compare(User user){
+        float pfcl;
+        float plng;
+        float ppob;
+        float phs;
+        float pst;
+
+        if(this.faculty.equals(user.faculty)){
+            pfcl = 1;
+        }else{
+            pfcl = 0;
+        }
+        if(this.lang.equals(user.lang)){
+            plng = 1;
+        }else{
+            plng = 0;
+        }
+        if(this.place_of_birth.equals(user.place_of_birth)){
+            ppob = 1;
+        }else{
+            ppob = 0;
+        }
+        if(this.highschool.equals(user.highschool)){
+            phs = 1;
+        }else{
+            phs = 0;
+        }
+        if(this.station.equals(user.station)){
+            pst = 1;
+        }else{
+            pst = 0;
+        }
+
+        return pfcl + plng + ppob + phs + pst;
+    }
 }
