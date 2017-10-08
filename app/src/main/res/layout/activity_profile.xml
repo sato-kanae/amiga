@@ -3,257 +3,256 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:background="#FFFFFF"
+    android:orientation="vertical"
+    android:padding="5dp">
+
     <TextView
-        android:id="@+id/textView23"
+        android:id="@+id/name"
         android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:background="#FFFFFF" />
+        android:layout_height="wrap_content"
+        android:background="#F0FFFF"
+        android:gravity="center"
+        android:text="本郷花子"
+        android:textAlignment="center"
+        android:textSize="25sp"
+        android:layout_weight="1"
+        />
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="140dp"
-        android:orientation="horizontal">
-        <LinearLayout
+        android:layout_height="27dp"
+        android:orientation="horizontal"
+        android:layout_weight="1">
+
+        <TextView
+            android:id="@+id/textView27"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_weight="0.95"
-            android:orientation="vertical">
-            <TextView
-                android:id="@+id/name"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.95"
-                android:background="#FFFFFF"
-                android:textSize="20sp" />
-            <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="match_parent"
-                android:layout_height="95dp"
-                android:background="#FFFFFF"
-                app:srcCompat="@mipmap/ic_launcher_round" />
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="260dp"
-            android:layout_height="140dp"
+            android:background="#F0FFFF"
+            android:gravity="center"
+            android:text="(ニックネーム : "
+            android:textAlignment="center"
+            android:textSize="18sp" />
+
+
+        <TextView
+            android:id="@+id/Nickname"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="#F0FFFF"
             android:layout_weight="1"
-            android:orientation="vertical">
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="45dp"
-                android:orientation="horizontal">
-                <LinearLayout
-                    android:layout_width="137dp"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
-                    <TextView
-                        android:id="@+id/textView2"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="#FFFFFF"
-                        android:fontFamily="sans-serif"
-                        android:text="科類"
-                        android:textSize="20sp" />
-                        <!--android:textColor="#814721"/>-->
-                    <!--android:textColor="#26D0C9"/>-->
-                    <TextView
-                        android:id="@+id/faculty"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:background="#FFFFFF"
-                        android:textColor="#FFFFFF"
-                        android:text="TextView"
-                        android:textSize="18sp" />
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-                    <TextView
-                        android:id="@+id/textView3"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="語学"
-                        android:textSize="20sp"
-                        android:background="#CCFFEE"
-                        />
-                    <TextView
-                        android:id="@+id/language"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="#CCFFEE"
-                        android:text="TextView"
-                        android:textSize="18sp" />
-                </LinearLayout>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="45dp"
-                android:orientation="horizontal">
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-                    <TextView
-                        android:id="@+id/textView4"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="出身地"
-                        android:textSize="20sp"
-                        android:background="#CCFFEE"
-                        />
-                    <TextView
-                        android:id="@+id/place"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="#CCFFEE"
-                        android:text="TextView"
-                        android:textSize="18sp" />
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-                    <TextView
-                        android:id="@+id/textView5"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="出身学校"
-                        android:textSize="20sp"
-                        android:background="#FFFFFF"
-                        />
-                    <TextView
-                        android:id="@+id/school"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="#FFFFFF"
-                        android:text="TextView"
-                        android:textSize="18sp" />
-                </LinearLayout>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:background="#CCFFEE"
-                    >
-                    <TextView
-                        android:id="@+id/textView6"
-                        android:layout_width="132dp"
-                        android:layout_height="wrap_content"
-                        android:text="最寄駅"
-                        android:textSize="20sp"
-                        android:background="#FFFFFF"
-                        />
-                    <TextView
-                        android:id="@+id/station"
-                        android:layout_width="132dp"
-                        android:layout_height="31dp"
-                        android:background="#FFFFFF"
-                        android:text="TextView"
-                        android:textSize="18sp" />
-                </LinearLayout>
-            </LinearLayout>
-        </LinearLayout>
+            android:gravity="center"
+            android:text="はーちゃん"
+            android:textAlignment="center"
+            android:textSize="18sp" />
+
+
+
+        <TextView
+            android:id="@+id/textView29"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="#F0FFFF"
+            android:text="）"
+            android:textSize="22sp"
+            android:gravity="center"
+            />
+
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-        <TextView
-            android:id="@+id/White"
-            android:layout_width="match_parent"
-            android:layout_height="3dp"
-            android:background="#FFFFFF" />
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        android:orientation="horizontal"
+        android:padding="2dp"
+        android:layout_weight="4"
+        >
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            android:background="#FFFFFF"
+            app:srcCompat="@mipmap/ic_launcher_round"
+            />
+
+
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:orientation="vertical">
+            android:layout_width="250dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="2dp"
+            android:layout_weight="1"
+            >
+            <!--android:layout_weight="0.31"-->
+
+
             <TextView
-                android:id="@+id/textView8"
+                android:id="@+id/language"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="趣味"
-                android:textSize="20sp"
-                android:background="#FFFFFF" />
-            <TextView
-                android:id="@+id/hobby"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:background="#CCFFEE"
+                android:gravity="center"
+                android:text="イタリア語"
+                android:textAlignment="center"
+                android:textSize="15sp"
                 android:layout_weight="1"
+
+                />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#CCFFEE"
+                android:gravity="center"
+                android:text="語学"
+                android:textAlignment="center"
+                android:textSize="15sp"
+                android:layout_weight="1"
+                />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:background="#FFFFFF"
-                android:text="TextView"
-                android:textSize="18sp" />
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:orientation="vertical">
-            <TextView
-                android:id="@+id/textView9"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="今ハマっていること"
-                android:textSize="20sp"
-                android:background="#CCFFEE"
-                />
-            <TextView
-                android:id="@+id/textView14"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:gravity="center"
+                android:text="科類"
+                android:textAlignment="center"
+                android:textSize="15sp"
                 android:layout_weight="1"
-                android:text="TextView"
-                android:textSize="18sp"
-                android:background="#CCFFEE"
                 />
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:orientation="vertical">
+
             <TextView
-                android:id="@+id/textView10"
+                android:id="@+id/faculty"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="考えているサークル・部活"
-                android:textSize="20sp"
-                android:background="#FFFFFF" />
-            <TextView
-                android:id="@+id/activity"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:background="#FFFFFF"
-                android:text="TextView"
-                android:textSize="18sp" />
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="160dp"
-            android:orientation="vertical">
-            <TextView
-                android:id="@+id/textView11"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="どんな大学生活を送りたい？"
-                android:textSize="20sp"
-                android:background="#CCFFEE"
+                android:gravity="center"
+                android:text="文科二類"
+                android:textAlignment="center"
+                android:textSize="15sp"
+                android:layout_weight="1"
                 />
+            <!--android:layout_weight="1"-->
+
+
             <TextView
-                android:id="@+id/life"
+                android:id="@+id/school"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.53"
                 android:background="#CCFFEE"
-                android:text="TextView"
-                android:textSize="18sp" />
+                android:gravity="center"
+                android:text="桜蔭"
+                android:textAlignment="center"
+                android:textSize="15sp"
+                android:layout_weight="1"
+                />
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#CCFFEE"
+                android:gravity="center"
+                android:text="出身学校"
+                android:textAlignment="center"
+                android:textSize="15sp"
+                android:layout_weight="1"
+               />
+
         </LinearLayout>
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.18"
+        android:background="#CCFFEE"
+        android:gravity="center"
+        android:text="趣味"
+        android:textAlignment="center"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/hobby"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1.8"
+        android:background="#CCFFEE"
+        android:gravity="center"
+        android:text="アプリ開発"
+        android:textAlignment="center"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.18"
+        android:background="#FFFFFF"
+        android:gravity="center"
+        android:text="今ハマっていること"
+        android:textAlignment="center"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1.8"
+        android:background="#FFFFFF"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.18"
+        android:background="#CCFFEE"
+        android:gravity="center"
+        android:text="考えているサークル・部活"
+        android:textAlignment="center"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/activity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1.8"
+        android:background="#CCFFEE"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.18"
+        android:background="#FFFFFF"
+        android:gravity="center"
+        android:text="どんな大学生活を送りたい？"
+        android:textAlignment="center"
+
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/life"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1.8"
+        android:background="#FFFFFF"
+        android:gravity="center"
+        android:textAlignment="center"
+
+        android:textSize="15sp" />
+
 </LinearLayout>
