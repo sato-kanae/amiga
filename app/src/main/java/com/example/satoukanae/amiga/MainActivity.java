@@ -19,6 +19,8 @@ import android.util.Log;
 
 import com.example.satoukanae.amiga.adapter.UserAdapter;
 import com.example.satoukanae.amiga.model.User;
+import com.mindorks.placeholderview.SwipeDecor;
+import com.mindorks.placeholderview.SwipePlaceHolderView;
 import com.example.satoukanae.amiga.model.Config;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.prolificinteractive.materialcalendarview.CalendarDay;
@@ -52,6 +54,7 @@ public class MainActivity extends AppCompatActivity implements OnDateSelectedLis
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         this.widget =(MaterialCalendarView)findViewById(R.id.calendarView);
+
         this.widget.setOnDateChangedListener(this);
         this.widget.setOnMonthChangedListener(this);
         this.dialogTitle = new TextView(this);
