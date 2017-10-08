@@ -130,7 +130,7 @@ public class MainActivity extends AppCompatActivity implements OnDateSelectedLis
             User tmp_user = pr.cdr;
             tmp_user.setTimeIcon(this.time_images.get(rand.nextInt(3)));
 
-            if(rand.nextInt(3) > score) {
+            if(rand.nextInt(3) < score) {
                 ret_users.add(tmp_user);
             }
         }
