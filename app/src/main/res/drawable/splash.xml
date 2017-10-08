@@ -9,7 +9,7 @@
         android:gravity="center">
         <bitmap
             android:gravity="center"
-            android:src="@drawable/amigalogo"/>
+            android:src="@drawable/amiga_logo"/>
     </item>
 
 </layer-list>
