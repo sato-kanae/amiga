@@ -22,7 +22,6 @@ import com.example.satoukanae.amiga.model.User;
 import com.mindorks.placeholderview.SwipeDecor;
 import com.mindorks.placeholderview.SwipePlaceHolderView;
 import com.example.satoukanae.amiga.model.Config;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.prolificinteractive.materialcalendarview.CalendarDay;
 import com.prolificinteractive.materialcalendarview.MaterialCalendarView;
 import com.prolificinteractive.materialcalendarview.OnDateSelectedListener;
