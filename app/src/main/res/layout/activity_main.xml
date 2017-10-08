@@ -15,5 +15,4 @@
         app:mcv_selectionColor="#44D3AE"
         tools:layout_editor_absoluteY="8dp"
         tools:layout_editor_absoluteX="8dp" />
-
 </android.support.constraint.ConstraintLayout>
