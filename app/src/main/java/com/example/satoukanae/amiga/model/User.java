@@ -26,7 +26,7 @@ public class User implements Serializable{
         this.name = name;
     }
 
-    public User(int timeIcon, int FaceIcon,
+    public User(int timeIcon, int faceIcon,
          String name, String nickname, String faculty, String lang,
          String highschool, String hobby, String like,
          String club,

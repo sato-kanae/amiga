@@ -54,7 +54,22 @@ public class MainActivity extends AppCompatActivity implements OnDateSelectedLis
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        this.widget =(MaterialCalendarView)findViewById(R.id.calendarView);
+        this.widget = (MaterialCalendarView) findViewById(R.id.calendarView);
+        this.listView = new ListView(this);
+        this.dialogTitle = new TextView(this);
+        this.config = Config.getInstance();
+        this.config.users.add(new User(R.drawable.morningimage, R.drawable.ayaimage, "下村綾  ", "aya", "文科Ｉ類", "中国語", "桜蔭", "", "", "", ""));
+        this.config.users.add(new User(R.drawable.eveningimage, R.drawable.haruimage, "木下波瑠", "haru", "文科Ⅱ類", "フランス語", "白百合", "", "", "", ""));
+        this.config.users.add(new User(R.drawable.noonimage, R.drawable.kanaimage, "川田加奈", "kana", "文科Ⅲ類", "スペイン語", "豊島丘", "", "", "", ""));
+        this.config.users.add(new User(R.drawable.eveningimage, R.drawable.mariimage, "伊藤麻里", "mari", "理科Ⅲ類", "ドイツ語", "豊島丘", "", "", "", ""));
+        this.config.users.add(new User(R.drawable.morningimage, R.drawable.mayaimage, "松本麻耶", "maya", "文科Ⅲ類", "中国語", "桜蔭", "", "", "", ""));
+        this.config.users.add(new User(R.drawable.noonimage, R.drawable.momoimage, "田中桃子", "momo", "理科Ⅲ類", "フランス語", "女子学院", "", "", "", ""));
+        this.config.users.add(new User(R.drawable.noonimage, R.drawable.nanaimage, "小野なな", "nana", "文科Ｉ類", "スペイン語", "女子学院", "", "", "", ""));
+        this.config.users.add(new User(R.drawable.morningimage, R.drawable.noaimage, "山脇乃亜", "noa", "文科Ⅱ類", "ドイツ語", "桜蔭", "", "", "", ""));
+        this.config.users.add(new User(R.drawable.noonimage, R.drawable.rikaimage, "伊藤梨花", "rika", "文科Ⅲ類", "中国語", "桜蔭", "", "", "", ""));
+        this.config.users.add(new User(R.drawable.eveningimage, R.drawable.tomoimage, "小野友", "tomo", "理科Ⅲ類", "フランス語", "豊島丘", "", "", "", ""));
+        this.config.users.add(new User(R.drawable.morningimage, R.drawable.yagiimage, "八木美沙", "yagi", "理科Ⅲ類", "スペイン語", "女子学院", "", "", "", ""));
+        this.config.users.add(new User(R.drawable.eveningimage, R.drawable.yumiimage, "奥村由美", "yumi", "文科Ⅲ類", "フランス語", "豊島丘", "", "", "", ""));
 
         this.time_images = new ArrayList<Integer>();
         this.time_images.add(R.drawable.morningimage);
@@ -76,9 +91,8 @@ public class MainActivity extends AppCompatActivity implements OnDateSelectedLis
 
         this.widget.setOnDateChangedListener(this);
         this.widget.setOnMonthChangedListener(this);
-        this.dialogTitle = new TextView(this);
         this.dialogTitle.setBackgroundColor(Color.parseColor("#44D3AE"));
-        this.dialogTitle.setHeight(60);
+        this.dialogTitle.setHeight(80);
         this.dialogTitle.setTextSize(20);
         this.dialogTitle.setTextColor(Color.parseColor("#FFFFFF"));
         this.dialogTitle.setGravity(Gravity.CENTER);
@@ -87,14 +101,13 @@ public class MainActivity extends AppCompatActivity implements OnDateSelectedLis
 
         this.listView = new ListView(this);
         this.listView.setOnItemClickListener(this);
-        this.dialog =new AlertDialog.Builder(this)
+        this.dialog = new AlertDialog.Builder(this)
                 .setCustomTitle(this.dialogTitle)
                 .setView(this.listView).create();
 
-
     }
 
-    public List<User> requestRecommendation(int userId){
+    public List<User> requestRecommendation(int userId) {
         List<User> users = this.config.users;
         User ref_user = users.get(userId);
         User user;
@@ -102,22 +115,23 @@ public class MainActivity extends AppCompatActivity implements OnDateSelectedLis
         class Pair {
             public float car;
             public User cdr;
-            Pair(float score, User user){
+
+            Pair(float score, User user) {
                 this.car = score;
                 this.cdr = user;
             }
         }
 
-        List<Pair> zipped  = new ArrayList<Pair>();
-        for(int i=0; i < users.size(); i++) {
-            if(i == userId){
+        List<Pair> zipped = new ArrayList<Pair>();
+        for (int i = 0; i < users.size(); i++) {
+            if (i == userId) {
                 continue;
             }
             user = users.get(i);
             zipped.add(new Pair(ref_user.compare(user), user));
         }
         Collections.sort(zipped, new Comparator<Pair>() {
-            public int compare(Pair x, Pair y){
+            public int compare(Pair x, Pair y) {
                 return x.car < y.car ? -1 : 1;
             }
         });
@@ -140,7 +154,7 @@ public class MainActivity extends AppCompatActivity implements OnDateSelectedLis
     @Override
     public void onDateSelected(@NonNull MaterialCalendarView widget, @Nullable CalendarDay date, boolean selected) {
         showDialog();
-        if (date != null){
+        if (date != null) {
             this.dialogTitle.setText(new SimpleDateFormat("yyyy/MM/dd").format(date.getDate()));
         }
     }
@@ -148,19 +162,19 @@ public class MainActivity extends AppCompatActivity implements OnDateSelectedLis
     @Override
     public void onMonthChanged(MaterialCalendarView widget, CalendarDay date) {
         //noinspection ConstantConditions
-        getSupportActionBar().setTitle(FORMATTER.format(date.getDate()));
+        if (date != null && FORMATTER.format(date.getDate()) != null) {
+//            getSupportActionBar().setTitle(FORMATTER.format(date.getDate()));
+        }
     }
+
 
     private void showDialog(){
         setDialogContents();
         this.dialog.show();
     }
 
-    private void setDialogContents(){
-        List<User> users = this.requestRecommendation(0);
-        UserAdapter adapter = new UserAdapter(getApplicationContext(), 0, users);
-
-        this.listView.setAdapter(adapter);
+    private void setDialogContents() {
+        this.listView.setAdapter(new UserAdapter(this, 0, this.requestRecommendation(0)));
     }
 
     private String getSelectedDatesString() {
@@ -173,9 +187,9 @@ public class MainActivity extends AppCompatActivity implements OnDateSelectedLis
 
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-        ListView lv  = (ListView)adapterView;
+        ListView lv = (ListView) adapterView;
         Intent intent = new Intent(this, ProfileActivity.class);
-        intent.putExtra("user", (User)lv.getItemAtPosition(i));
+        intent.putExtra("user", (User) lv.getItemAtPosition(i));
         startActivityForResult(intent, 1000);
     }
 }
