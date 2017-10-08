@@ -59,6 +59,7 @@ public class ProfileActivity extends AppCompatActivity {
             @Override
             public void onChildViewAdded(View view, View view1) {
                 Log.d("EVENT", "onChildViewAdded");
+                startActivityForResult(new Intent(getApplicationContext(), RequestActivity.class), 1001);
                 finish();
             }
 
