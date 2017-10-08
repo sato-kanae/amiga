@@ -31,7 +31,6 @@ public class MainActivity extends AppCompatActivity implements OnDateSelectedLis
 
     private static final DateFormat FORMATTER = SimpleDateFormat.getDateInstance();
 
-
     private MaterialCalendarView widget;
     private TextView textView;
     private ListView listView;
@@ -52,7 +51,6 @@ public class MainActivity extends AppCompatActivity implements OnDateSelectedLis
         this.dialog =new AlertDialog.Builder(this)
                 .setTitle("2017年10月8日")
                 .setView(this.listView).create();
-
     }
 
     @Override

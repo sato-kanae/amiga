@@ -33,6 +33,13 @@
 
         <LinearLayout
             android:layout_width="260dp"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:layout_weight="1"
+            app:srcCompat="@mipmap/ic_launcher_round" />
+
+        <LinearLayout
+            android:layout_width="200dp"
             android:layout_height="140dp"
             android:layout_weight="1"
             android:orientation="vertical">
@@ -153,6 +160,13 @@
                 </LinearLayout>
 
             </LinearLayout>
+                android:layout_height="match_parent"
+                android:orientation="horizontal"></LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"></LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -184,7 +198,6 @@
                 </LinearLayout>
 
             </LinearLayout>
-
         </LinearLayout>
     </LinearLayout>
 
@@ -221,7 +234,6 @@
                 android:textSize="18sp"
                 android:background="#EAFFF4" />
         </LinearLayout>
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="70dp"
@@ -267,7 +279,6 @@
                 android:textSize="18sp"
                 android:background="#EAFFF4" />
         </LinearLayout>
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="160dp"

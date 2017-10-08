@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 import com.example.satoukanae.amiga.model.User;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 
 public class ProfileActivity extends AppCompatActivity {
 
@@ -19,7 +21,5 @@ public class ProfileActivity extends AppCompatActivity {
 
 
         ((TextView)findViewById(R.id.name)).setText(name);
-
-
     }
 }
