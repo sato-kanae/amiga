@@ -19,12 +19,12 @@
             android:id="@+id/rejectBtn"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:background="@drawable/dropbutton"/>
+            android:background="@drawable/heartbutton"/>
         <ImageButton
             android:id="@+id/acceptBtn"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginLeft="30dp"
-            android:background="@drawable/heartbutton"/>
+            android:background="@drawable/dropbutton"/>
     </LinearLayout>
 </FrameLayout>

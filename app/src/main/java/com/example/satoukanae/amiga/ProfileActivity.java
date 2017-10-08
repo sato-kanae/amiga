@@ -41,7 +41,7 @@ public class ProfileActivity extends AppCompatActivity {
         findViewById(R.id.rejectBtn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                swipeView.doSwipe(false);
+                swipeView.doSwipe(true);
                 finish();
             }
         });
@@ -50,7 +50,7 @@ public class ProfileActivity extends AppCompatActivity {
         findViewById(R.id.acceptBtn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                swipeView.doSwipe(true);
+                swipeView.doSwipe(false);
                 finish();
             }
         });
