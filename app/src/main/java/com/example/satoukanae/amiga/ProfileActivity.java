@@ -28,10 +28,5 @@ public class ProfileActivity extends AppCompatActivity {
 //       String hobby = user.getHobby()
 
         ((TextView)findViewById(R.id.name)).setText(name);
-
-
-
-        Intent intent = getIntent();
-        final User user = (User) intent.getSerializableExtra("user");
     }
 }
