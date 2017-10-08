@@ -32,7 +32,6 @@ public class MainActivity extends AppCompatActivity implements OnDateSelectedLis
     private static final DateFormat FORMATTER = SimpleDateFormat.getDateInstance();
 
     private MaterialCalendarView widget;
-    private TextView textView;
     private ListView listView;
     private AlertDialog dialog;
 
@@ -41,7 +40,6 @@ public class MainActivity extends AppCompatActivity implements OnDateSelectedLis
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         widget =(MaterialCalendarView)findViewById(R.id.calendarView);
-        textView =(TextView) findViewById(R.id.textView);
         widget.setOnDateChangedListener(this);
         widget.setOnMonthChangedListener(this);
 
@@ -56,7 +54,6 @@ public class MainActivity extends AppCompatActivity implements OnDateSelectedLis
     @Override
     public void onDateSelected(@NonNull MaterialCalendarView widget, @Nullable CalendarDay date, boolean selected) {
         showDialog();
-        textView.setText(getSelectedDatesString());
     }
 
     @Override
