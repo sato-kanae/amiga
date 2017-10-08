@@ -19,11 +19,29 @@ import com.mindorks.placeholderview.annotations.swipe.SwipeOutState;
 @Layout(R.layout.profile_card)
 public class TinderCard {
 
+    /**
+     *
+     */
     @View(R.id.imageView)
     private ImageView profileImageView;
-
     @View(R.id.name)
     private TextView name;
+    @View(R.id.nickname)
+    private TextView nickname;
+    @View(R.id.language)
+    private TextView language;
+    @View(R.id.faculty)
+    private TextView faculty;
+    @View(R.id.school)
+    private TextView school;
+    @View(R.id.hobby)
+    private TextView hobby;
+    @View(R.id.textView14)
+    private TextView textView14;
+    @View(R.id.activity)
+    private TextView activity;
+    @View(R.id.life)
+    private TextView life;
 
     private User user;
     private Context context;
@@ -37,8 +55,16 @@ public class TinderCard {
 
     @Resolve
     private void onResolved() {
-        this.name.setText(this.user.getName());
         this.profileImageView.setImageResource(user.getFaceIcon());
+        this.name.setText(this.user.getName());
+        this.nickname.setText(this.user.getNickname());
+        this.language.setText(this.user.getLang());
+        this.faculty.setText(this.user.getFaculty());
+        this.school.setText(this.user.getHighschool());
+        this.hobby.setText(this.user.getHobby());
+        this.textView14.setText(this.user.getLike());
+        this.activity.setText(this.user.getClub());
+        this.life.setText(this.user.getLife());
     }
 
     @SwipeOut
